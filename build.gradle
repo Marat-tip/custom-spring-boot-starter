@@ -1,17 +1,35 @@
 plugins {
     id 'java'
-    id 'application'
+    id 'org.springframework.boot' version '2.7.1'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'maven-publish'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 
 group 'kz.halykacademy.starter'
 version '1.0'
+
+jar {
+    classifier('')
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = 'greetings-spring-boot-starter'
+            artifact jar
+        }
+    }
+}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-autoconfigure-processor'
+    compileOnly 'org.springframework.boot:spring-boot-starter-web'
 }
 
 test {

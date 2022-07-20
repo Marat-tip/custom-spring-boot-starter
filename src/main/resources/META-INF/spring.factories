@@ -1,0 +1,1 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=kz.halykacademy.starter.GreetingsStarterAutoConfiguration
